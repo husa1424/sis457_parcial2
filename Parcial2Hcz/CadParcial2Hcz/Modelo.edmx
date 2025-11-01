@@ -32,6 +32,18 @@
           <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="estadoRegistro" Type="smallint" Nullable="false" />
+          <Property Name="tipoId" Type="int" />
+        </EntityType>
+        <EntityType Name="TipoPrograma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="estado" Type="smallint" Nullable="false" />
+          <Property Name="usuarioRegistro" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="fk_Programa_Canal">
           <End Role="Canal" Type="Self.Canal" Multiplicity="1" />
@@ -51,6 +63,7 @@
         <EntityContainer Name="Parcial2HczModelStoreContainer">
           <EntitySet Name="Canal" EntityType="Self.Canal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Programa" EntityType="Self.Programa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPrograma" EntityType="Self.TipoPrograma" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_Programa_Canal" Association="Self.fk_Programa_Canal">
             <End Role="Canal" EntitySet="Canal" />
             <End Role="Programa" EntitySet="Programa" />
@@ -89,7 +102,19 @@
           <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="estadoRegistro" Type="Int16" Nullable="false" />
+          <Property Name="tipoId" Type="Int32" />
           <NavigationProperty Name="Canal" Relationship="Self.fk_Programa_Canal" FromRole="Programa" ToRole="Canal" />
+        </EntityType>
+        <EntityType Name="TipoPrograma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="Int16" Nullable="false" />
+          <Property Name="usuarioRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <Association Name="fk_Programa_Canal">
           <End Role="Canal" Type="Self.Canal" Multiplicity="1" />
@@ -103,9 +128,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Parcial2HczEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Parcial2HczEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Canal" EntityType="Self.Canal" />
           <EntitySet Name="Programa" EntityType="Self.Programa" />
+          <EntitySet Name="TipoPrograma" EntityType="Self.TipoPrograma" />
           <AssociationSet Name="fk_Programa_Canal" Association="Self.fk_Programa_Canal">
             <End Role="Canal" EntitySet="Canal" />
             <End Role="Programa" EntitySet="Programa" />
@@ -123,6 +149,7 @@
           <Property Type="Int32" Name="duracion" Nullable="false" />
           <Property Type="String" Name="productor" Nullable="false" MaxLength="100" />
           <Property Type="DateTime" Name="fechaEstreno" Nullable="false" />
+          <Property Type="String" Name="tipo" Nullable="false" MaxLength="50" />
           <Property Type="Int16" Name="estado" Nullable="false" />
           <Property Type="String" Name="usuarioRegistro" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
@@ -132,7 +159,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Parcial2HczModelStoreContainer" CdmEntityContainer="Parcial2HczEntities">
+        <EntityContainerMapping StorageEntityContainer="Parcial2HczModelStoreContainer" CdmEntityContainer="Parcial2HczEntities1">
           <EntitySetMapping Name="Canal">
             <EntityTypeMapping TypeName="Parcial2HczModel.Canal">
               <MappingFragment StoreEntitySet="Canal">
@@ -160,6 +187,19 @@
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
                 <ScalarProperty Name="estadoRegistro" ColumnName="estadoRegistro" />
+                <ScalarProperty Name="tipoId" ColumnName="tipoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPrograma">
+            <EntityTypeMapping TypeName="Parcial2HczModel.TipoPrograma">
+              <MappingFragment StoreEntitySet="TipoPrograma">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -174,6 +214,7 @@
                 <ScalarProperty Name="duracion" ColumnName="duracion" />
                 <ScalarProperty Name="productor" ColumnName="productor" />
                 <ScalarProperty Name="fechaEstreno" ColumnName="fechaEstreno" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
                 <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />

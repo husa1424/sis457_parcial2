@@ -95,3 +95,64 @@ GO
 EXEC paProgramaListar 'noticias canal'; --ES UN BUSCADOR 
 EXEC paProgramaListar '';
 
+
+USE Parcial2Hcz;
+GO
+
+IF OBJECT_ID('dbo.TipoPrograma', 'U') IS NOT NULL
+  DROP TABLE dbo.TipoPrograma;
+GO
+
+CREATE TABLE TipoPrograma (
+  id INT IDENTITY(1,1) PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL UNIQUE,
+  descripcion VARCHAR(250) NULL,
+  estado SMALLINT NOT NULL DEFAULT 1, -- -1 Elim, 0 Inactivo, 1 Activo
+  usuarioRegistro VARCHAR(50) NOT NULL DEFAULT SUSER_NAME(),
+  fechaRegistro DATETIME NOT NULL DEFAULT GETDATE()
+);
+GO
+
+INSERT INTO TipoPrograma (nombre, descripcion) VALUES
+('noticiero', 'Programas de noticias e informativos'),
+('serie', 'Series de TV por capítulos'),
+('pelicula', 'Películas'),
+('deportes', 'Transmisiones deportivas'),
+('animado', 'Programas/series animadas');
+GO
+
+ALTER TABLE Programa ADD tipoId INT NULL;
+GO
+
+select * from Programa
+
+
+IF OBJECT_ID('dbo.paProgramaListar', 'P') IS NOT NULL
+  DROP PROC dbo.paProgramaListar;
+GO
+
+CREATE PROC paProgramaListar @parametro VARCHAR(50)
+AS
+  SELECT pr.id,
+         pr.idCanal,
+         c.nombre AS canal,
+         pr.titulo,
+         pr.descripcion,
+         pr.duracion,
+         pr.productor,
+         pr.fechaEstreno,
+         tp.nombre AS tipo, 
+         pr.estado,
+         pr.usuarioRegistro,
+         pr.fechaRegistro
+  FROM Programa pr
+  INNER JOIN Canal c ON c.id = pr.idCanal
+  INNER JOIN TipoPrograma tp ON tp.id = pr.tipoId
+  WHERE pr.estado > -1
+    AND (pr.titulo + pr.descripcion + c.nombre + tp.nombre) LIKE '%' + REPLACE(@parametro,' ','%') + '%'
+  ORDER BY pr.estado DESC, pr.titulo ASC;
+GO
+
+
+select * from Canal
+select * from Programa

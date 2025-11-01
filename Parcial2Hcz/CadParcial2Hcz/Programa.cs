@@ -25,6 +25,7 @@ namespace CadParcial2Hcz
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
         public short estadoRegistro { get; set; }
+        public Nullable<int> tipoId { get; set; }
     
         public virtual Canal Canal { get; set; }
     }

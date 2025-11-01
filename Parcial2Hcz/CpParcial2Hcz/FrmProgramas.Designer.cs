@@ -64,6 +64,8 @@
             this.lblDuracion = new System.Windows.Forms.Label();
             this.erpProductor = new System.Windows.Forms.ErrorProvider(this.components);
             this.erpEstado = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cbxTipo = new System.Windows.Forms.ComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.erpTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpCanal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpDescripcion)).BeginInit();
@@ -115,7 +117,7 @@
             // 
             this.btnCancelar.Image = global::CpParcial2Hcz.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(652, 424);
+            this.btnCancelar.Location = new System.Drawing.Point(700, 424);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(106, 40);
             this.btnCancelar.TabIndex = 10;
@@ -128,7 +130,7 @@
             // 
             this.btnGuardar.Image = global::CpParcial2Hcz.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(544, 424);
+            this.btnGuardar.Location = new System.Drawing.Point(592, 424);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(102, 40);
             this.btnGuardar.TabIndex = 7;
@@ -380,7 +382,7 @@
             // 
             // nudDuracion
             // 
-            this.nudDuracion.Location = new System.Drawing.Point(176, 444);
+            this.nudDuracion.Location = new System.Drawing.Point(177, 456);
             this.nudDuracion.Maximum = new decimal(new int[] {
             120,
             0,
@@ -403,7 +405,7 @@
             // lblDuracion
             // 
             this.lblDuracion.AutoSize = true;
-            this.lblDuracion.Location = new System.Drawing.Point(38, 446);
+            this.lblDuracion.Location = new System.Drawing.Point(38, 463);
             this.lblDuracion.Name = "lblDuracion";
             this.lblDuracion.Size = new System.Drawing.Size(53, 13);
             this.lblDuracion.TabIndex = 12;
@@ -417,13 +419,33 @@
             // 
             this.erpEstado.ContainerControl = this;
             // 
+            // cbxTipo
+            // 
+            this.cbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipo.FormattingEnabled = true;
+            this.cbxTipo.Location = new System.Drawing.Point(177, 429);
+            this.cbxTipo.Name = "cbxTipo";
+            this.cbxTipo.Size = new System.Drawing.Size(196, 21);
+            this.cbxTipo.TabIndex = 15;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(38, 432);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(33, 13);
+            this.lblTipo.TabIndex = 15;
+            this.lblTipo.Text = "Tipol:";
+            // 
             // FrmProgramas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 487);
+            this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.lblDuracion);
             this.Controls.Add(this.nudDuracion);
+            this.Controls.Add(this.cbxTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGuardar);
@@ -491,6 +513,8 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.ErrorProvider erpProductor;
         private System.Windows.Forms.ErrorProvider erpEstado;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.ComboBox cbxTipo;
     }
 }
 

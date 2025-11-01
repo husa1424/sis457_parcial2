@@ -18,7 +18,7 @@ namespace CadParcial2Hcz
     public partial class Parcial2HczEntities : DbContext
     {
         public Parcial2HczEntities()
-            : base("name=Parcial2HczEntities")
+            : base("name=Parcial2HczEntities1")
         {
         }
     
@@ -29,6 +29,7 @@ namespace CadParcial2Hcz
     
         public virtual DbSet<Canal> Canal { get; set; }
         public virtual DbSet<Programa> Programa { get; set; }
+        public virtual DbSet<TipoPrograma> TipoPrograma { get; set; }
     
         public virtual ObjectResult<paProgramaListar_Result> paProgramaListar(string parametro)
         {

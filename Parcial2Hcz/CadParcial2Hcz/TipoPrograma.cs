@@ -10,18 +10,13 @@
 namespace CadParcial2Hcz
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class paProgramaListar_Result
+    public partial class TipoPrograma
     {
         public int id { get; set; }
-        public int idCanal { get; set; }
-        public string canal { get; set; }
-        public string titulo { get; set; }
+        public string nombre { get; set; }
         public string descripcion { get; set; }
-        public int duracion { get; set; }
-        public string productor { get; set; }
-        public System.DateTime fechaEstreno { get; set; }
-        public string tipo { get; set; }
         public short estado { get; set; }
         public string usuarioRegistro { get; set; }
         public System.DateTime fechaRegistro { get; set; }
