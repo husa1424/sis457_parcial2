@@ -92,7 +92,7 @@ namespace CpParcial2Hcz
             txtTitulo.Clear();
             txtDescripcion.Clear();
             cbxCanal.SelectedIndex = -1;
-            nudDuracion.Value = 60;
+            nudDuracion.Value = 30;
             txtProductor.Clear();
             dtpFechaEstreno.Value = DateTime.Now;
         }

@@ -96,6 +96,7 @@
             // 
             // btnBuscar
             // 
+            this.btnBuscar.Image = global::CpParcial2Hcz.Properties.Resources.search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(672, 36);
             this.btnBuscar.Name = "btnBuscar";
@@ -112,6 +113,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Image = global::CpParcial2Hcz.Properties.Resources.cancel;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(652, 424);
             this.btnCancelar.Name = "btnCancelar";
@@ -124,6 +126,7 @@
             // 
             // btnGuardar
             // 
+            this.btnGuardar.Image = global::CpParcial2Hcz.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardar.Location = new System.Drawing.Point(544, 424);
             this.btnGuardar.Name = "btnGuardar";
@@ -314,6 +317,7 @@
             // 
             // btnNuevo
             // 
+            this.btnNuevo.Image = global::CpParcial2Hcz.Properties.Resources._new;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevo.Location = new System.Drawing.Point(168, 3);
             this.btnNuevo.Name = "btnNuevo";
@@ -337,6 +341,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Image = global::CpParcial2Hcz.Properties.Resources.close;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(468, 3);
             this.btnCerrar.Name = "btnCerrar";
@@ -349,6 +354,7 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.Image = global::CpParcial2Hcz.Properties.Resources.delete;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminar.Location = new System.Drawing.Point(364, 3);
             this.btnEliminar.Name = "btnEliminar";
@@ -361,6 +367,7 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Image = global::CpParcial2Hcz.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(266, 3);
             this.btnEditar.Name = "btnEditar";
@@ -380,7 +387,7 @@
             0,
             0});
             this.nudDuracion.Minimum = new decimal(new int[] {
-            60,
+            30,
             0,
             0,
             0});
